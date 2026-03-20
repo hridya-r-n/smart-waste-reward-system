@@ -26,9 +26,11 @@ window.login = async function () {
 
   const data = await res.json();
 
-  localStorage.setItem("user", JSON.stringify(data));
+  localStorage.clear()
 
-  if (data.role === "admin") {
+  localStorage.setItem("user", JSON.stringify(data));
+  console.log("data:", data);
+  if (data.role && data.role.toLowerCase().trim() === "admin") {
     window.location.href = "../admin/dashboard.html";
   } else {
     window.location.href = "../user/dashboard.html";

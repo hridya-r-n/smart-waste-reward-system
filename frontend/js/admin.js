@@ -22,7 +22,7 @@ async function loadReports() {
         ${
           r.status === "pending"
             ? `<button onclick="resolve('${r._id}')">Resolve</button>`
-            : `<span>✔ Done</span>`
+            : `<span> Done</span>`
         }
       </div>
     `;

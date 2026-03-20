@@ -6,9 +6,10 @@ const User = require("../models/user");
 // Leaderboard
 router.get("/leaderboard", async (req, res) => {
   try {
-    const users = await User.find()
-      .sort({ points: -1 }) // highest first
-      .select("name points");
+    const users = await User.find({ role: "user" })
+    .sort({ points: -1 })
+    .limit(10)
+    .select("name points");
 
     res.json(users);
   } catch (err) {

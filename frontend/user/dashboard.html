@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Dashboard</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<div class="card">
+  <h2>User Dashboard</h2>
+
+  <input id="location" placeholder="Location">
+  <input id="wasteType" placeholder="Waste Type">
+
+  <select id="severity">
+    <option value="low">Low</option>
+    <option value="medium">Medium</option>
+    <option value="high">High</option>
+  </select>
+
+  <button class="btn" onclick="submitReport()">Submit</button>
+</div>
+
+<div id="reports" class="card-list"></div>
+
+<script src="../js/main.js"></script>
+<script src="../js/user.js"></script>
+
+</body>
+</html>

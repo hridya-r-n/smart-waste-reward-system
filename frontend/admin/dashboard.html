@@ -1,29 +1,68 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Admin Dashboard</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin — SmartCity</title>
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 
-<div class="navbar">
-  <h2 class="logo">Admin Panel</h2>
+  <nav class="navbar">
+    <a href="../admin/dashboard.html" class="navbar-brand">
+      <div class="navbar-icon">⬡</div>
+      <span class="navbar-logo">Smart<span>City</span> <span style="font-size:10px;color:var(--white-dimmer);font-weight:400;letter-spacing:1px;">ADMIN</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="../admin/dashboard.html" class="active">Control</a>
+      <a href="../admin/leaderboard.html">Leaderboard</a>
+      <a href="#" class="logout-btn" onclick="logout()">Logout</a>
+    </div>
+  </nav>
 
-  <div class="nav-links">
-    <a href="../admin/dashboard.html">Dashboard</a>
-    <a href="../admin/leaderboard.html">Leaderboard</a>
-    <a href="#" onclick="logout()">Logout</a>
+  <div class="page-wide">
+    <div class="page-header fade-up">
+      <h1>Control <span>Center</span></h1>
+      <p>// manage and resolve all citizen waste reports</p>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat-card fade-up" style="animation-delay:0.05s">
+        <div class="stat-label">Total Reports</div>
+        <div class="stat-value" id="stat-total">—</div>
+        <div class="stat-sub">all time</div>
+      </div>
+      <div class="stat-card fade-up" style="animation-delay:0.1s">
+        <div class="stat-label">Pending</div>
+        <div class="stat-value" id="stat-pending" style="color:var(--amber)">—</div>
+        <div class="stat-sub">requires action</div>
+      </div>
+      <div class="stat-card fade-up" style="animation-delay:0.15s">
+        <div class="stat-label">Resolved</div>
+        <div class="stat-value" id="stat-resolved" style="color:var(--green)">—</div>
+        <div class="stat-sub">completed</div>
+      </div>
+    </div>
+
+    <div class="section-header fade-up" style="animation-delay:0.2s">
+      <span class="section-title">Report Queue</span>
+      <div class="filter-bar" style="margin:0">
+        <button class="filter-btn active" data-filter="all"      onclick="setFilter('all')">All</button>
+        <button class="filter-btn"        data-filter="pending"  onclick="setFilter('pending')">Pending</button>
+        <button class="filter-btn"        data-filter="resolved" onclick="setFilter('resolved')">Resolved</button>
+      </div>
+    </div>
+
+    <div style="height:12px"></div>
+
+    <div id="adminReports" class="admin-grid">
+      <div style="grid-column:1/-1">
+        <div class="loading"><div class="spinner"></div> Loading report queue…</div>
+      </div>
+    </div>
   </div>
-</div>
 
-<div class="card">
-  <h2>Admin Dashboard</h2>
-</div>
-
-<div id="adminReports" class="card-list"></div>
-
-<script src="../js/main.js"></script>
-<script src="../js/admin.js"></script>
-
+  <script src="../js/main.js"></script>
+  <script src="../js/admin.js"></script>
 </body>
 </html>

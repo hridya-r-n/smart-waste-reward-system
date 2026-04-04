@@ -1,38 +1,93 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>User Dashboard</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard — SmartCity</title>
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-<div class="navbar">
-  <h2 class="logo">Smart Waste</h2>
 
-  <div class="nav-links">
-    <a href="../user/dashboard.html">Dashboard</a>
-    <a href="../user/leaderboard.html">Leaderboard</a>
-    <a href="#" onclick="logout()">Logout</a>
+  <nav class="navbar">
+    <a href="../user/dashboard.html" class="navbar-brand">
+      <div class="navbar-icon">⬡</div>
+      <span class="navbar-logo">Smart<span>City</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="../user/dashboard.html" class="active">Dashboard</a>
+      <a href="../user/leaderboard.html">Leaderboard</a>
+      <div class="user-badge">
+        <div class="user-avatar" id="user-avatar-icon">U</div>
+        <span id="user-points">0 pts</span>
+      </div>
+      <a href="#" class="logout-btn" onclick="logout()">Logout</a>
+    </div>
+  </nav>
+
+  <div class="page">
+    <div class="page-header fade-up">
+      <h1>Citizen <span>Dashboard</span></h1>
+      <p>// submit waste reports · earn reward points</p>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat-card fade-up" style="animation-delay:0.05s">
+        <div class="stat-label">Reward Points</div>
+        <div class="stat-value" id="stat-points">0</div>
+        <div class="stat-sub">+10 per report</div>
+      </div>
+      <div class="stat-card fade-up" style="animation-delay:0.1s">
+        <div class="stat-label">Total Reports</div>
+        <div class="stat-value" id="stat-reports">—</div>
+        <div class="stat-sub">city-wide</div>
+      </div>
+    </div>
+
+    <div class="report-form fade-up" style="animation-delay:0.15s">
+      <div class="form-title">⬡ New Waste Report</div>
+
+      <div class="form-group">
+        <label>Location</label>
+        <input id="location" type="text" placeholder="e.g. Zone-4, Block-C, MG Road">
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Waste Type</label>
+          <input id="wasteType" type="text" placeholder="e.g. Plastic, Organic, Metal">
+        </div>
+        <div class="form-group">
+          <label>Severity Level</label>
+          <select id="severity">
+            <option value="low">LOW</option>
+            <option value="medium">MEDIUM</option>
+            <option value="high">HIGH</option>
+          </select>
+        </div>
+      </div>
+
+      <button id="submit-btn" class="btn" onclick="submitReport()">Submit Report</button>
+    </div>
+
+    <div>
+      <div class="section-header">
+        <span class="section-title">Report Feed</span>
+        <span id="report-count" style="font-size:11px;color:var(--white-dimmer);font-family:'Share Tech Mono',monospace;"></span>
+      </div>
+
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all"      onclick="setFilter('all')">All</button>
+        <button class="filter-btn"        data-filter="pending"  onclick="setFilter('pending')">Pending</button>
+        <button class="filter-btn"        data-filter="resolved" onclick="setFilter('resolved')">Resolved</button>
+      </div>
+
+      <div id="reports-list">
+        <div class="loading"><div class="spinner"></div> Loading…</div>
+      </div>
+    </div>
   </div>
-</div>
-<div class="card">
-  <h2>User Dashboard</h2>
 
-  <input id="location" placeholder="Location">
-  <input id="wasteType" placeholder="Waste Type">
-
-  <select id="severity">
-    <option value="low">Low</option>
-    <option value="medium">Medium</option>
-    <option value="high">High</option>
-  </select>
-
-  <button class="btn" onclick="submitReport()">Submit</button>
-</div>
-
-<div id="reports" class="card-list"></div>
-
-<script src="../js/main.js"></script>
-<script src="../js/user.js"></script>
-
+  <script src="../js/main.js"></script>
+  <script src="../js/user.js"></script>
 </body>
 </html>

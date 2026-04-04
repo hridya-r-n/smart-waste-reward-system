@@ -1,27 +1,46 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Leaderboard</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leaderboard — SmartCity</title>
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-<div class="navbar">
-  <h2 class="logo">Smart Waste</h2>
 
-  <div class="nav-links">
-    <a href="../user/dashboard.html">Dashboard</a>
-    <a href="../user/leaderboard.html">Leaderboard</a>
-    <a href="#" onclick="logout()">Logout</a>
+  <nav class="navbar">
+    <a href="../user/dashboard.html" class="navbar-brand">
+      <div class="navbar-icon">⬡</div>
+      <span class="navbar-logo">Smart<span>City</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="../user/dashboard.html">Dashboard</a>
+      <a href="../user/leaderboard.html" class="active">Leaderboard</a>
+      <div class="user-badge">
+        <div class="user-avatar" id="user-avatar-icon">U</div>
+        <span id="user-points">0 pts</span>
+      </div>
+      <a href="#" class="logout-btn" onclick="logout()">Logout</a>
+    </div>
+  </nav>
+
+  <div class="page">
+    <div class="page-header fade-up">
+      <h1>City <span>Leaderboard</span></h1>
+      <p>// top 10 citizen contributors ranked by reward points</p>
+    </div>
+
+    <div class="info-banner fade-up" style="animation-delay:0.05s">
+      <span style="color:var(--cyan);font-size:14px;">⬡</span>
+      <span id="my-rank-notice">Loading rank data…</span>
+    </div>
+
+    <div id="leaderboard">
+      <div class="loading"><div class="spinner"></div> Fetching leaderboard…</div>
+    </div>
   </div>
-</div>
-<div class="card">
-  <h2>🏆 Leaderboard</h2>
-</div>
 
-<div id="leaderboard" class="card-list"></div>
-
-<script src="../js/main.js"></script>
-<script src="../js/leaderboard.js"></script>
-
+  <script src="../js/main.js"></script>
+  <script src="../js/leaderboard.js"></script>
 </body>
 </html>

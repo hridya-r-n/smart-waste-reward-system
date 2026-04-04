@@ -1,29 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Admin Leaderboard</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leaderboard Admin — SmartCity</title>
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 
-<div class="navbar">
-  <h2 class="logo">Admin Panel</h2>
+  <nav class="navbar">
+    <a href="../admin/dashboard.html" class="navbar-brand">
+      <div class="navbar-icon">⬡</div>
+      <span class="navbar-logo">Smart<span>City</span> <span style="font-size:10px;color:var(--white-dimmer);font-weight:400;letter-spacing:1px;">ADMIN</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="../admin/dashboard.html">Control</a>
+      <a href="../admin/leaderboard.html" class="active">Leaderboard</a>
+      <a href="#" class="logout-btn" onclick="logout()">Logout</a>
+    </div>
+  </nav>
 
-  <div class="nav-links">
-    <a href="../admin/dashboard.html">Dashboard</a>
-    <a href="../admin/leaderboard.html">Leaderboard</a>
-    <a href="#" onclick="logout()">Logout</a>
+  <div class="page">
+    <div class="page-header fade-up">
+      <h1>City <span>Leaderboard</span></h1>
+      <p>// top 10 citizen contributors by reward points</p>
+    </div>
+
+    <div class="info-banner fade-up" style="animation-delay:0.05s">
+      <span style="color:var(--cyan);font-size:14px;">⬡</span>
+      <span>Citizens earn <strong style="color:var(--cyan)">10 points</strong> per submitted waste report.</span>
+    </div>
+
+    <div id="leaderboard">
+      <div class="loading"><div class="spinner"></div> Fetching leaderboard…</div>
+    </div>
   </div>
-</div>
 
-<div class="card">
-  <h2>🏆 Leaderboard</h2>
-</div>
-
-<div id="leaderboard" class="card-list"></div>
-
-<script src="../js/main.js"></script>
-<script src="../js/leaderboard.js"></script>
-
+  <script src="../js/main.js"></script>
+  <script src="../js/leaderboard.js"></script>
 </body>
 </html>

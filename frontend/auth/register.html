@@ -8,7 +8,8 @@
 </head>
 
 <body>
-  <div class="auth-card">
+  <div class="auth-container">
+    <div class="auth-card">
 
     <div class="auth-logo">
       <h1>New Citizen</h1>
@@ -30,7 +31,7 @@
       <input type="password" id="password" placeholder="Enter password">
     </div>
 
-    <button class="btn" onclick="register()">Create Account</button>
+    <button id="register-btn" class="btn" onclick="register()">Create Account</button>
 
     <p class="auth-footer">
       Already registered? <a href="login.html">Sign in</a>
@@ -39,6 +40,8 @@
     <button class="btn btn-ghost" onclick="goBack()">← Back</button>
 
   </div>
+  </div>
+  
 
   <script src="../js/main.js"></script>
   <script src="../js/auth.js"></script>

@@ -30,6 +30,7 @@ body {
   min-height: 100vh;
   font-size: 15px;
   line-height: 1.6;
+  
 }
 
 /* Scanline texture */
@@ -191,6 +192,12 @@ body::after {
 }
 
 /* ── AUTH CARD ── */
+.auth-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .auth-card {
   background: var(--surface);
   border: 1px solid var(--blue-border);
@@ -283,7 +290,7 @@ input, select, textarea {
   font-size: 14px;
   transition: all 0.2s;
   outline: none;
-  -webkit-appearance: none;
+  /* -webkit-appearance: none; */
   border-radius: 0;
 }
 

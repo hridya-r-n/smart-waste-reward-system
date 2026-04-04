@@ -8,7 +8,8 @@
 </head>
 
 <body>
-  <div class="auth-card">
+  <div class="auth-container">
+    <div class="auth-card">
 
     <div class="auth-logo">
       <h1>System Access</h1>
@@ -25,7 +26,7 @@
       <input type="password" id="password" placeholder="Enter password">
     </div>
 
-    <button class="btn" onclick="login()">Login</button>
+    <button id="login-btn" class="btn" onclick="login()">Login</button>
 
     <p class="auth-footer">
       No account? <a href="register.html">Register</a>
@@ -34,6 +35,8 @@
     <button class="btn btn-ghost" onclick="goBack()">← Back</button>
 
   </div>
+  </div>
+  
 
   <script src="../js/main.js"></script>
   <script src="../js/auth.js"></script>
